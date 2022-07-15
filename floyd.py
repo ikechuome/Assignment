@@ -1,11 +1,14 @@
 import unittest
 # unit test package
 
+import datetime
 
 # Number of vertices in the graph
 V = 4
 
 INF = 99999
+
+start_time = datetime.datetime.now()
 
 
 def floydWarshall(graph):
@@ -29,7 +32,8 @@ for k in range(V):
             dist[i][j] = min(dist[i][j],
                              dist[i][k] + dist[k][j]
                              )
-print(dist)
+print(dist,'floyd algorithm')
+
 
 # A utility function to print the solution
 def printSolution(dist):
@@ -58,18 +62,16 @@ def printSolution(dist):
             5           """
 
 # Print the solution
-MAX_LENGTH = len(dist)
+print(graph, 'initial graph')
 
-floydWarshall(dist)
+
 
 printSolution(dist)
-
-
-
+end_time = datetime.datetime.now()
+print(end_time - start_time)
 
 
 def vertice_number(dist):
-
     """# Unit testing"""
 
     if len(dist) > 4:
